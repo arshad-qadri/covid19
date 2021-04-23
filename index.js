@@ -8,9 +8,11 @@ const TotalDeaths = document.querySelector('#TotalDeaths');
 const TotalRecovered = document.querySelector('#TotalRecovered');
 const input = document.querySelector('#input');
 const myserach = document.querySelector('#serach');
-let realData = [];
+let realData = '';
+let x = 76;
 const getNewCovidCases = () => {
-  let x = realData.Countries.findIndex(e => e.Country === input.value);
+  x = realData.Countries.findIndex(e => e.Country === input.value);
+  console.log(`x value ${x}`);
   const arrayData = realData.Countries[x];
   conutry_name.innerHTML = `Country : ${arrayData.Country} (${arrayData.CountryCode})`;
   update.innerHTML = `<b> Last Update : </b> ${arrayData.Date} `;
@@ -22,6 +24,7 @@ const getNewCovidCases = () => {
   TotalRecovered.innerHTML = arrayData.TotalRecovered;
   console.log(realData);
   console.log(input.value);
+  console.log(x);
 };
 const getCovidCases = async () => {
   const api = 'https://api.covid19api.com/summary';
