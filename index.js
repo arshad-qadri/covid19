@@ -1,4 +1,5 @@
 const conutry_name = document.querySelector('#conutry_name');
+const update = document.querySelector('#update');
 const NewConfirmed = document.querySelector('#NewConfirmed');
 const NewDeaths = document.querySelector('#NewDeaths');
 const NewRecovered = document.querySelector('#NewRecovered');
@@ -14,6 +15,7 @@ const getCovidCases = async () => {
     console.log(realData.Countries);
     const arrayData = realData.Countries[76];
     conutry_name.innerHTML = `Country : ${arrayData.Country} (${arrayData.CountryCode})`;
+    update.innerHTML = `<b> Last Update : </b> ${arrayData.Date} `;
     NewConfirmed.innerHTML = arrayData.NewConfirmed;
     NewDeaths.innerHTML = arrayData.NewDeaths;
     NewRecovered.innerHTML = arrayData.NewRecovered;
