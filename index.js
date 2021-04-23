@@ -6,22 +6,32 @@ const NewRecovered = document.querySelector('#NewRecovered');
 const TotalConfirmed = document.querySelector('#TotalConfirmed');
 const TotalDeaths = document.querySelector('#TotalDeaths');
 const TotalRecovered = document.querySelector('#TotalRecovered');
-
+const input = document.querySelector('#input');
+const myserach = document.querySelector('#serach');
+let realData = [];
+const getNewCovidCases = () => {
+  let x = realData.Countries.findIndex(e => e.Country === input.value);
+  const arrayData = realData.Countries[x];
+  conutry_name.innerHTML = `Country : ${arrayData.Country} (${arrayData.CountryCode})`;
+  update.innerHTML = `<b> Last Update : </b> ${arrayData.Date} `;
+  NewConfirmed.innerHTML = arrayData.NewConfirmed;
+  NewDeaths.innerHTML = arrayData.NewDeaths;
+  NewRecovered.innerHTML = arrayData.NewRecovered;
+  TotalConfirmed.innerHTML = arrayData.TotalConfirmed;
+  TotalDeaths.innerHTML = arrayData.TotalDeaths;
+  TotalRecovered.innerHTML = arrayData.TotalRecovered;
+  console.log(realData);
+  console.log(input.value);
+};
 const getCovidCases = async () => {
   const api = 'https://api.covid19api.com/summary';
   try {
     const data = await fetch(api);
-    const realData = await data.json();
+    realData = await data.json();
     console.log(realData.Countries);
-    const arrayData = realData.Countries[76];
-    conutry_name.innerHTML = `Country : ${arrayData.Country} (${arrayData.CountryCode})`;
-    update.innerHTML = `<b> Last Update : </b> ${arrayData.Date} `;
-    NewConfirmed.innerHTML = arrayData.NewConfirmed;
-    NewDeaths.innerHTML = arrayData.NewDeaths;
-    NewRecovered.innerHTML = arrayData.NewRecovered;
-    TotalConfirmed.innerHTML = arrayData.TotalConfirmed;
-    TotalDeaths.innerHTML = arrayData.TotalDeaths;
-    TotalRecovered.innerHTML = arrayData.TotalRecovered;
+    getNewCovidCases();
   } catch (error) {}
 };
+
+myserach.addEventListener('click', getNewCovidCases);
 getCovidCases();
