@@ -14,10 +14,11 @@ const myserach = document.querySelector('#serach');
 const countryData = document.querySelector('#country');
 let realData = '';
 let x = 0;
+let inpVal = '';
 
 const getGlobalCases = () => {
   const GarrayData = realData.Global;
-  Global.innerHTML = 'Global';
+  Global.innerHTML = 'Global Data';
   Gupdate.innerHTML = `<b> Last Update : </b> ${GarrayData.Date} `;
   GNewConfirmed.innerHTML = GarrayData.NewConfirmed;
   GNewDeaths.innerHTML = GarrayData.NewDeaths;
@@ -28,10 +29,16 @@ const getGlobalCases = () => {
 };
 
 const getNewCovidCases = () => {
-  let inpVal =
+  inpVal =
     myinput.value[0].toUpperCase() + myinput.value.slice(1).toLowerCase();
   x = realData.Countries.findIndex(e => e.Country === inpVal);
   const arrayData = realData.Countries[x];
+
+  if (!inpVal) {
+    alert('Plea');
+  } else {
+  }
+
   if (x < 0) {
     alert('Country Not Found');
   } else if (x >= 0) {
@@ -73,7 +80,7 @@ const getCovidCases = async () => {
   try {
     const data = await fetch(api);
     realData = await data.json();
-    console.log(realData.Countries);
+    console.log(realData);
     console.log(realData.Global);
     getGlobalCases();
     getNewCovidCases();
