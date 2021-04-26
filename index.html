@@ -15,45 +15,51 @@
   </head>
   <body>
     <div class="container">
-      <div class="d-flex justify-content-between my-4">
-        <h5 id="conutry_name"></h5>
-        <div id="update"></div>
+      <div class="global">
+        <div class="d-flex justify-content-between my-4">
+          <h5 id="Global"></h5>
+          <div id="Gupdate"></div>
+        </div>
+        <table class="table table-responsive shadow">
+          <thead class="bg-dark text-white">
+            <tr>
+              <th scope="col">New Confirmed</th>
+              <th scope="col">New Deaths</th>
+              <th scope="col">New Recovered</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="GNewConfirmed">Mark</td>
+              <td id="GNewDeaths">Otto</td>
+              <td id="GNewRecovered">@mdo</td>
+            </tr>
+            <tr>
+              <th scope="col">Total Confirmed</th>
+              <th scope="col">Total Deaths</th>
+              <th scope="col">Total Recovered</th>
+            </tr>
+            <tr>
+              <td id="GTotalConfirmed">Jacob</td>
+              <td id="GTotalDeaths">Thornton</td>
+              <td id="GTotalRecovered">@fat</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="table table-responsive shadow">
-        <thead class="bg-dark text-white">
-          <tr>
-            <th scope="col">New Confirmed</th>
-            <th scope="col">New Deaths</th>
-            <th scope="col">New Recovered</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td id="NewConfirmed">Mark</td>
-            <td id="NewDeaths">Otto</td>
-            <td id="NewRecovered">@mdo</td>
-          </tr>
-          <tr>
-            <th scope="col">Total Confirmed</th>
-            <th scope="col">Total Deaths</th>
-            <th scope="col">Total Recovered</th>
-          </tr>
-          <tr>
-            <td id="TotalConfirmed">Jacob</td>
-            <td id="TotalDeaths">Thornton</td>
-            <td id="TotalRecovered">@fat</td>
-          </tr>
-        </tbody>
-      </table>
 
-      <input
-        type="text"
-        class="input-group p-2"
-        id="input"
-        placeholder="Search with country name"
-        style="text-transform: capitalize"
-      />
-      <button id="serach" class="btn btn-sm btn-primary my-1">Search</button>
+      <div class="searchArea d-flex justify-content-center align-items-center">
+        <input
+          type="text"
+          class="input-group"
+          id="input"
+          placeholder="Search here with country name"
+          style="text-transform: capitalize"
+        />
+        <button id="serach" class="btn btn-sm btn-primary my-1">Search</button>
+      </div>
+
+      <div id="country"></div>
     </div>
 
     <script

@@ -9,3 +9,20 @@ body {
 table {
   background-color: #fff;
 }
+.searchArea input,
+.searchArea button {
+  height: 50px;
+  font-weight: 700;
+}
+.searchArea button {
+  width: 100px;
+}
+.searchArea input {
+  padding-left: 20px;
+
+  outline: none;
+  border: 1px solid #212529;
+}
+::placeholder {
+  font-weight: 400;
+}
