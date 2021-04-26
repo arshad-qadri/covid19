@@ -6,12 +6,14 @@ const GNewRecovered = document.querySelector('#GNewRecovered');
 const GTotalConfirmed = document.querySelector('#GTotalConfirmed');
 const GTotalDeaths = document.querySelector('#GTotalDeaths');
 const GTotalRecovered = document.querySelector('#GTotalRecovered');
+const myinput = document.getElementById('input');
 
 // -------------------------------------------------------------
 
 const myserach = document.querySelector('#serach');
 const countryData = document.querySelector('#country');
 let realData = '';
+let x = 0;
 
 const getGlobalCases = () => {
   const GarrayData = realData.Global;
@@ -26,9 +28,13 @@ const getGlobalCases = () => {
 };
 
 const getNewCovidCases = () => {
-  let x = realData.Countries.findIndex(e => e.Country === input.value);
+  let inpVal =
+    myinput.value[0].toUpperCase() + myinput.value.slice(1).toLowerCase();
+  x = realData.Countries.findIndex(e => e.Country === inpVal);
   const arrayData = realData.Countries[x];
-  if (x >= 0) {
+  if (x < 0) {
+    alert('Country Not Found');
+  } else if (x >= 0) {
     countryData.innerHTML = ` <div class="d-flex justify-content-between my-4">
     <h5>  Country : <b> ${arrayData.Country} </b></h5>
     <div> <b> Last Update : </b> ${arrayData.Date} </div>

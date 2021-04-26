@@ -16,12 +16,21 @@ table {
 }
 .searchArea button {
   width: 100px;
+  outline: none;
+  border: none;
+  background: #2980b9;
+  color: #fff;
+  border: 1px solid #2980b9;
+}
+.searchArea button:hover {
+  background-color: #0984e3;
+  transition: 0.3s;
 }
 .searchArea input {
   padding-left: 20px;
-
   outline: none;
-  border: 1px solid #212529;
+  border: 1px solid #2980b9;
+  color: #2980b9;
 }
 ::placeholder {
   font-weight: 400;
