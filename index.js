@@ -13,8 +13,9 @@ const myinput = document.getElementById('input');
 const myserach = document.querySelector('#serach');
 const countryData = document.querySelector('#country');
 let realData = '';
-let x = 0;
+let x;
 let inpVal = '';
+let arrayData = '';
 
 const getGlobalCases = () => {
   const GarrayData = realData.Global;
@@ -29,14 +30,15 @@ const getGlobalCases = () => {
 };
 
 const getNewCovidCases = () => {
-  inpVal =
-    myinput.value[0].toUpperCase() + myinput.value.slice(1).toLowerCase();
-  x = realData.Countries.findIndex(e => e.Country === inpVal);
-  const arrayData = realData.Countries[x];
-
-  if (!inpVal) {
-    alert('Plea');
+  if (myinput.value === '') {
+    alert('Please Enter Any Country Name');
+  } else if (myinput.value.replace(/\s/g, '').length <= 0) {
+    alert('No white spaces are allowed');
   } else {
+    inpVal =
+      myinput.value[0].toUpperCase() + myinput.value.slice(1).toLowerCase();
+    x = realData.Countries.findIndex(e => (e.Country = inpVal));
+    arrayData = realData.Countries[x];
   }
 
   if (x < 0) {
@@ -83,7 +85,7 @@ const getCovidCases = async () => {
     console.log(realData);
     console.log(realData.Global);
     getGlobalCases();
-    getNewCovidCases();
+    // getNewCovidCases();
   } catch (error) {}
 };
 
