@@ -35,10 +35,10 @@ const getNewCovidCases = () => {
   } else if (myinput.value.replace(/\s/g, '').length <= 0) {
     alert('No white spaces are allowed');
   } else {
-    inpVal =
-      myinput.value[0].toUpperCase() + myinput.value.slice(1).toLowerCase();
-    x = realData.Countries.findIndex(e => (e.Country = inpVal));
+    inpVal = myinput.value[0].toUpperCase() + myinput.value.slice(1);
+    x = realData.Countries.findIndex(e => e.Country === inpVal);
     arrayData = realData.Countries[x];
+    console.log(x);
   }
 
   if (x < 0) {
